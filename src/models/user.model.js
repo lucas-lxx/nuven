@@ -1,8 +1,20 @@
 const prisma = require("../config/prisma");
 class User {
   constructor() {}
-  static create(data) {
-    return prisma.user.create({ data });
+  static async create(data) {
+    return await prisma.user.create({ data });
+  }
+
+  static async findByEmail(email) {
+    return await prisma.user.findUnique({
+      where: { email },
+    });
+  }
+
+  static async findById(id) {
+    return await prisma.user.findUnique({
+      where: { id },
+    });
   }
 }
 

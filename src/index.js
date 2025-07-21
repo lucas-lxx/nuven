@@ -4,9 +4,9 @@ const authRouter = require("./routes/auth.routes");
 const app = express();
 
 app.use(express.json());
-app.use("/auth", authRouter);
+app.use("/", authRouter);
 app.use("/", (req, res, next) => {
-  res.json({ message: "work" });
+  res.json({ message: "hit the get all route" });
 });
 
 app.listen(process.env.PORT ?? 3000, () => {
