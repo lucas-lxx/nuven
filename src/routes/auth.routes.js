@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const z = require("zod");
-const validate = require("../middlewares/vidation.middleware");
+const validate = require("../middlewares/validation.middleware");
 const bcrypt = require("bcrypt");
 const User = require("../models/user.model");
 
