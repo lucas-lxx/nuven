@@ -9,7 +9,7 @@ Este projeto utiliza **Docker Compose** para construir e executar o backend em a
 Execute os seguinte comando para obter as dependências
 
 ```bash
-docker compose run --rm app install
+docker compose run --rm npm install
 ```
 ### 2. Adicionar .env na pasta raiz do projeto
 
