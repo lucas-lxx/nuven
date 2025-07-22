@@ -75,6 +75,9 @@ router.post("/auth/login", validate(loginDto), async (req, res) => {
 
 router.get("/me", auth, async (req, res) => {
   const userData = await User.findById(req.user.sub);
+  if (!userData) {
+    res.status(404).json({ error: "User not found" });
+  }
   const { password, ...user } = userData;
   res.status(200).json(user);
 });
