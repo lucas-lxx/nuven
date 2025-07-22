@@ -12,7 +12,6 @@ services:
       - ".:/app"
     env_file:
       - ./.env
-    command: ["run", "start:dev"]
     depends_on:
       - postgres
   postgres:
@@ -23,5 +22,17 @@ services:
       - '7000:5432'
     volumes:
       - pg_nuven:/var/lib/postgresql/data
+  npm:
+    build:
+      context: .
+      dockerfile: npm.dockerfile
+      args:
+        - USER_ID=1000
+        - GROUP_ID=1000
+    command: ["audit"]
+    volumes:
+      - ".:/app"
+    env_file:
+      - ./.env
 volumes:
   pg_nuven:

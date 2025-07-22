@@ -13,4 +13,4 @@ RUN useradd -u ${USER_ID} -g ${GROUP_ID} -m -s /bin/bash -p "" user
 
 USER user
 
-CMD [ "sh", "-c", "npx prisma migrate dev & npm run start:dev" ]
+ENTRYPOINT [ "npm" ]
